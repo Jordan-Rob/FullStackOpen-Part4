@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title": "web dev",
+    "author": "Joram",
+    "url": "12-477887655-0",
+    "likes": 5
+}
+
