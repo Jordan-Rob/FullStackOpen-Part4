@@ -45,6 +45,14 @@ test('all blogs are returned on get', async() => {
       
 })
 
+test('verify unique identifier is id', async() => {
+
+     const response = await api.get('/api/blogs')
+     const blogs = response.body.map(b => b)
+     expect(blogs[0].id).toBeDefined()
+})
+
+
 afterAll(() => {
     mongoose.connection.close()
 })
