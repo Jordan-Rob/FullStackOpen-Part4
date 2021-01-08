@@ -52,6 +52,31 @@ test('verify unique identifier is id', async() => {
      expect(blogs[0].id).toBeDefined()
 })
 
+test('verify creation of new blog', async() => {
+    const newBlog = {
+        title: "Testin express apps",
+        author: "Crissy",
+        url: "app.JS.io",
+        likes: 8
+    }
+
+    await api
+      .post('/api/blogs')
+      .send(newBlog)
+      .expect(201)
+      .expect('Content-Type', /application\/json/)
+
+    const blogsAtEnd = await api.get('/api/blogs') 
+    expect(blogsAtEnd.body).toHaveLength(initialBlogs.length + 1)
+
+    const titles = blogsAtEnd.body.map(b => b.title)
+    expect(titles).toContain(
+        "Testin express apps"
+    )
+
+
+})
+
 
 afterAll(() => {
     mongoose.connection.close()

@@ -2,9 +2,9 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-    "title": "Node JS",
+    "title": "Node JS and Express",
     "author": "Joram",
     "url": "12-477887655-0",
-    "likes": 11
+    "likes": 19
 }
 
