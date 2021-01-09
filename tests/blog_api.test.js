@@ -97,6 +97,18 @@ test('verify blog is assigned 0 likes if likes are missig', async() => {
 
 })
 
+test('return 400 if url and title are missing', async () => {
+  const newBlog = {
+    author: "Joram",
+    likes: 12
+  }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(400)
+
+})
 
 afterAll(() => {
     mongoose.connection.close()

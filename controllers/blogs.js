@@ -22,6 +22,11 @@ blogRouter.post('/', async(request, response) => {
       const result = await blog.save()
       response.status(201).json(result)  
     }
+    else if(!body.title && !body.url){
+      return response.status(400).json({
+        error: 'title & url are missing'
+      })
+    }
     else{
       const newBlog = {
         title: body.title,
