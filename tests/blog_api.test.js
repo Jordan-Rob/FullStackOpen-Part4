@@ -124,6 +124,29 @@ test('verify blog is removed on deletion', async () => {
 
 })
 
+test('verify blog is can be updated', async() => {
+  const blogs = await api.get('/api/blogs')
+  const blogToUpdate = blogs.body[0]
+
+  const update = {
+    title: "Node JS",
+    author: "Joram",
+    url: "12-477887655-0",
+    likes: 100
+  }
+
+  await api
+    .put(`/api/blogs/${blogToUpdate.id}`)
+    .send(update)
+    .expect(200)
+
+  const response = await api.get('/api/blogs')
+  const likes = response.body.map(b => b.likes)
+
+  expect(likes).toContain(100)
+  expect(likes).toHaveLength(initialBlogs.length)
+})
+
 afterAll(() => {
     mongoose.connection.close()
 })
