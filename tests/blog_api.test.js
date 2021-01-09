@@ -77,6 +77,26 @@ test('verify creation of new blog', async() => {
 
 })
 
+test('verify blog is assigned 0 likes if likes are missig', async() => {
+  const newBlog = {
+    title: "Clean code ",
+    author: "Crissy",
+    url: "app.JS.io"
+  }
+
+  await api
+    .post('/api/blogs')
+    .send(newBlog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  const response = await api.get('/api/blogs')
+  const likes = response.body.map(b => b.likes)
+
+  expect(likes).toContain(0)
+
+})
+
 
 afterAll(() => {
     mongoose.connection.close()

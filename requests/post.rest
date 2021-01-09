@@ -4,7 +4,6 @@ Content-Type: application/json
 {
     "title": "Node JS and Express",
     "author": "Joram",
-    "url": "12-477887655-0",
-    "likes": 19
+    "url": "12-477887655-0"
 }
 
