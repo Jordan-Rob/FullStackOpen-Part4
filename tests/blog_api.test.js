@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const supertest = require('supertest')
 const Blog = require('../models/blog')
 const app = require('../app')
+const { init } = require('../models/blog')
 
 const api = supertest(app)
 
@@ -107,6 +108,19 @@ test('return 400 if url and title are missing', async () => {
     .post('/api/blogs')
     .send(newBlog)
     .expect(400)
+
+})
+
+test('verify blog is removed on deletion', async () => {
+  const blogs = await api.get('/api/blogs')
+  const blogToDelete = blogs.body[0]
+
+  await api
+    .delete(`/api/blogs/${blogToDelete.id}`)
+    .expect(204)
+
+  const response = await api.get('/api/blogs')
+  expect(response.body).toHaveLength(initialBlogs.length - 1)  
 
 })
 
