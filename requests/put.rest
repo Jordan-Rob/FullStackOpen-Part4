@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/5fef4ea3ddcdca256c5efd62
+Content-Type: application/json
+
+{
+    "title": "Express JS",
+    "author": "Joram",
+    "url": "Joram.io",
+    "likes": 24
+}
