@@ -2,7 +2,8 @@ POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
-    "author": "Joram",
+    "title": "island vibes",
+    "author": "Calypso",
     "likes": 12
 
 }
