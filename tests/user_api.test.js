@@ -45,6 +45,19 @@ describe('when theres initially one user in db', () => {
         .get('/api/users')
         .expect(200)
     })
+
+    test('invalid user cant be added', async () => {
+        const newUser = {
+            username:'MA',
+            name:'Donald Trump',
+            password:'dt'
+        }
+
+        await api
+          .post('/api/users')
+          .send(newUser)
+          .expect(400)
+    })
     
 })
 
