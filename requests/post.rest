@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IlNhbW15IiwiaWQiOiI1ZmZkZDI1ZDhlMTBkOTA3MWNhYTM5ZjIiLCJpYXQiOjE2MTA0NzAwMjJ9.Be0bDgfCNdqjjpW5TkWrv8kEWXjDcI4DsYirH1lV91E
 
 {
-    "title": "auth with jwt",
+    "title": "user administration 2 ",
     "author": "jay",
     "likes": 34
 
